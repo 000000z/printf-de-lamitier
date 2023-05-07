@@ -56,33 +56,37 @@ donc 42 en hexa = 2a
 
 -----------------------------------------------------------------------------------
 
-variadic :
+fonctions variadiques
 
-va_list : 
+    va_list : definit 
 
-c'est pas une fonction c'est une structure (comme un int, un char etc...) et ca stock les éléments qui sont dans le "..."
+c'est pas une fonction c'est une structure (comme un int, un char etc...)
+Cette variable est utilisée pour stocker la liste d'arguments variables passés à la fonction (les éléments qui sont dans le "...").
 
-va_start : 
+    va_start : initialise la variable
 
 initialise le arg_list quon a cree juste avant avec va_list et on peux maintenant l'utiliser avec va_arg et va_end 
 prend le va list quon a cree juste avant, et le dernier parametre (ca sera tjrs celui juste avant les ...)
 
-va_arg :
+    va_arg : accede aux argument variable de la liste
 
-prend en paramètre... et ... et renvoie un ...
+prend en paramètre va_list et ... et renvoie un ...
 a chq fois quon l'appelle ca modifie arg_list pour donner l'argument suivant quand on le rappelle (en gros ca i++ automatiquement et ca passe a la valeur d'apres quoi) --> ca avance dans la liste
 
+    va_end :  libere les ressources
 
-va_end :
-
-- prend en paramètre le va_list 
+- prend en paramètre le va_list et va le "detruire"/liberer les ressources 
+une fois que le fonction a fini d'utiliser les arguments variables 
 - ne peux être appelé sans va_start avant
-- ca va "detruire" le va_list qui sera mtn indéfini
 
------------------
+------------------------------------------------
 
 ft_printf("%d, %c", 42, n);
 
 "%d, %c" = const char *format
-42, n = "..."
- 
+42, n = "..." --> varaible argument
+
+--------------------------------------------------------
+
+regarder la video sur l'intra ?
+
