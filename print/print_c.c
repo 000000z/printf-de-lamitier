@@ -9,6 +9,12 @@
 /*   Updated: 2023/05/08 00:59:56 by lboudjel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "includes/ft_printf.h"
+
+/*
+on donne a va_arg un int qu'on cast ensuite en char, pour les char etendu
+qui n'ont pas de place dans un char
+*/
 
 int	print_c(va_list args)
 {
