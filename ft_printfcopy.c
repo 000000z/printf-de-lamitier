@@ -186,47 +186,53 @@ void	ft_putnbr_base(unsigned long long int nb, char *base)
 }
 
 
+
 int	check(char c, va_list args)
 {
 	if (c == '%')
-		return(print_pourcent());
-	if (c == 'c')   
-		print_c(args);
-	if (c == 'p')   
-		print_p(args);
-	if (c == 's')   
-		print_s(args);
-	if (c == 'd' || c == 'i') 
-		print_d_i(args);
-	if (c == 'u')   
-		print_u(args);
-	if (c == 'x')   
-		print_x(args);
-	if (c == 'X')   
-		print_X(args);
+		return (print_pourcent());
+	if (c == 'c')
+		return (print_c(args));
+	if (c == 'p')
+		return (print_p(args));
+	if (c == 's')
+		return (print_s(args));
+	if (c == 'd' || c == 'i')
+		return (print_d_i(args));
+	if (c == 'u')
+		return (print_u(args));
+	if (c == 'x')
+		return (print_x(args));
+	if (c == 'X')
+		return (print_X(args));
+	return (0);
 }
 
-int		ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	int i;
+	int	count;
 	va_list args;
 
 	va_start(args, str);
-
+	count = 0;
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			check(str[i+1], args);
+			count = count + check(str[i + 1], args);
 			i++;
 		}
 		else
+		{
 			ft_putchar(str[i]);
+			count++;
+		}
 		i++;
 	}
-	return (i);
 	va_end(args);
+	return (count);
 }
 
 
@@ -234,7 +240,7 @@ int		ft_printf(const char *str, ...)
 int main(void)
 {
 	printf("longueur de mon printf %d\n", ft_printf("bonjour %d", 1000));
-	printf("longueur de printf %d\n", printf("bonjour %d", 10000));
+	printf("longueur de printf %d\n", printf("bonjour %d", 1000));
 
 	printf("longueur de mon printf %d\n", ft_printf("bonjour %c", 'a'));
 	printf("longueur de printf %d\n", printf("bonjour %c", 'a'));
