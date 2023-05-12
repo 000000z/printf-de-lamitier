@@ -6,7 +6,7 @@
 /*   By: lboudjel <lboudjel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:26:00 by lboudjel          #+#    #+#             */
-/*   Updated: 2023/05/12 13:59:49 by lboudjel         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:34:20 by lboudjel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ void	ft_putnbr(int nb)
 		ft_putnbr(nb % 10);
 	}
 }
+
 void	ft_putnbr_positive(unsigned int n)
 {
 	unsigned long long int	nb;
 
 	nb = n;
-	if (nb > 10)
+	if (nb > 9)
 	{
 		ft_putnbr_positive(nb / 10);
 		ft_putchar(nb % 10 + '0');
@@ -74,13 +75,13 @@ il reste 10 (42 - 32) donc on va a la 10e position qui est un a
 donc 42 en hexa = 2a
 */
 
-void	ft_putnbr_base(unsigned long long int nb, char *base)
+void	ft_putnbr_base(unsigned long long int nb, const char *base)
 {
 	if (nb >= 16)
 	{
 		ft_putnbr_base(nb / 16, base);
-		write(1, &base[nb % 16], 1);
+		ft_putchar(base[nb % 16]);
 	}
 	else
-		write(1, &base[nb], 1);
+		ft_putchar(base[nb]);
 }

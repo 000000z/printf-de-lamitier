@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	count_len(int n)
+int	count_len(long long int n)
 {	
 	int	len;
 
@@ -30,6 +30,16 @@ int	count_len(int n)
 		len++;
 	}
 	return (len);
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 int	count_len_u(unsigned int n)

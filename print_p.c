@@ -18,8 +18,8 @@ int	print_p(va_list args)
 
 	n = (unsigned long)va_arg(args, void *);
 	if (n == 0)
-		return (write(1, "(nil)", 5));
-	write(1, "0x", 2);
+		return (ft_putstr("(nil)"));
+	ft_putstr("0x");
 	ft_putnbr_base(n, "0123456789abcdef");
 	return (count_base(n) + 2);
 }

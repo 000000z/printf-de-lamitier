@@ -14,7 +14,7 @@
 
 int	print_d_i(va_list args)
 {
-	int	n;
+	long long int	n;
 
 	n = va_arg(args, int);
 	ft_putnbr(n);

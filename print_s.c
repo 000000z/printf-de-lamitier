@@ -9,13 +9,17 @@
 /*   Updated: 2023/05/10 17:11:55 by lboudjel		 ###   ########.fr	   */
 /*																			*/
 /* ************************************************************************** */
-
+#include <stdlib.h>
 #include "ft_printf.h"
 
 int	print_s(va_list args)
 {
-	const char	*s;
+	char	*s;
 
-	s = va_arg(args, const char *);
-	return (ft_putstr(s));
+	s = (char *)va_arg(args, char *);
+	if (s == NULL)
+		return (ft_putstr("(null)"));
+	else
+		ft_putstr(s);
+	return (ft_strlen(s));
 }

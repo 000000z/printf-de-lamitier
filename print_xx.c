@@ -16,7 +16,7 @@ int	print_xx(va_list args)
 {
 	unsigned long long int	n;
 
-	n = va_arg(args, unsigned long long int);
+	n = (unsigned long long int)va_arg(args, unsigned int);
 	ft_putnbr_base(n, "0123456789ABCDEF");
 	return (count_base(n));
 }
