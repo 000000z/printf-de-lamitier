@@ -14,9 +14,9 @@
 
 int	print_u(va_list args)
 {
-	unsigned int	n;
+	size_t	n;
 
-	n = va_arg(args, unsigned int);
+	n = va_arg(args, size_t);
 	ft_putnbr_positive(n);
-	return (count_len(n));
+	return (count_len_u(n));
 }

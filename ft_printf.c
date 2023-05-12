@@ -1,18 +1,17 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::		::::::::   */
-/*   ft_printf.c										:+:		:+:	:+:   */
-/*													+:+ +:+			+:+		*/
-/*   By: lboudjel <marvin@42.fr>					+#+  +:+		+#+		*/
-/*												+#+#+#+#+#+   +#+			*/
-/*   Created: 2023/05/08 00:57:37 by lboudjel			#+#	#+#				*/
-/*   Updated: 2023/05/08 00:57:37 by lboudjel			###   ########.fr		*/
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lboudjel <lboudjel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/12 12:23:53 by lboudjel          #+#    #+#             */
+/*   Updated: 2023/05/12 12:23:53 by lboudjel         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 #include <stdio.h>
 #include <unistd.h>
-
 
 int	check(char c, va_list args)
 {
@@ -37,9 +36,9 @@ int	check(char c, va_list args)
 
 int	ft_printf(const char *str, ...)
 {
-	int i;
-	int	count;
-	va_list args;
+	int		i;
+	int		count;
+	va_list	args;
 
 	va_start(args, str);
 	count = 0;

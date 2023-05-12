@@ -33,6 +33,21 @@ int	count_len(int n)
 	return (len);
 }
 
+int	count_len_u(unsigned int n)
+{	
+	unsigned int	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
+}
+
 int	count_base(unsigned long long int n)
 {	
 	int	len;
@@ -82,11 +97,11 @@ int	print_s(va_list args)
 
 int	print_u(va_list args)
 {
-	unsigned long long int	n;
+	unsigned int	n;
 
 	n = va_arg(args, unsigned int);
 	ft_putnbr_positive(n);
-	return (count_len(n));
+	return (count_len_u(n));
 }
 
 int	print_x(va_list args)
@@ -235,7 +250,7 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-
+#include <limits.h>
 
 int main(void)
 {
@@ -245,47 +260,51 @@ int main(void)
 	//printf("longueur de mon printf %d\n", ft_printf("bonjour %c", 'a'));
 	//printf("longueur de printf %d\n", printf("bonjour %c", 'a'));
 
-	ft_printf(" %x ", 0);
-	ft_printf(" %x ", -1);
-	ft_printf(" %x ", 1);
-	ft_printf(" %x ", 9);
-	ft_printf(" %x ", 10);
-	ft_printf(" %x ", 11);
-	ft_printf(" %x ", 15);
-	ft_printf(" %x ", 16);
-	ft_printf(" %x ", 17);
-	ft_printf(" %x ", 99);
-	ft_printf(" %x ", 100);
-	ft_printf(" %x ", 101);
-	ft_printf(" %x ", -9);
-	ft_printf(" %x ", -10);
-	ft_printf(" %x ", -11);
-	ft_printf(" %x ", -14);
-	ft_printf(" %x ", -101);
-	ft_printf(" %x ", -15);
-	ft_printf(" %x ", -16);
-	ft_printf(" %x ", -99);
-	ft_printf(" %x \n", -100);
+	/*printf("longueur de mon printf %d\n", ft_printf(" %u ", 0));
+	ft_printf(" %u ", -1);
+	ft_printf(" %u ", 1);
+	ft_printf(" %u ", 9);
+	ft_printf(" %u ", 10);
+	ft_printf(" %u ", 11);
+	ft_printf(" %u ", 15);
+	ft_printf(" %u ", 16);
+	ft_printf(" %u ", 17);
+	ft_printf(" %u ", 99);
+	ft_printf(" %u ", 100);
+	ft_printf(" %u ", 101);
+	ft_printf(" %u ", -9);
+	ft_printf(" %u ", -10);
+	ft_printf(" %u ", -11);
+	ft_printf(" %u ", -14);
+	ft_printf(" %u ", -15);
+	ft_printf(" %u ", -16);
+	ft_printf(" %u ", -100);*/
+	printf("longueur de mon printf %d\n",ft_printf("%u", 101));
+	printf("longueur de printf %d\n", printf("%u", 101));
+	ft_printf(".%u.", 10);
+	printf(".%u.", 10);
+	
 
-	printf(" %x ", 0);
-	printf(" %x ", -1);
-	printf(" %x ", 1);
-	printf(" %x ", 9);
-	printf(" %x ", 10);
-	printf(" %x ", 11);
-	printf(" %x ", 15);
-	printf(" %x ", 16);
-	printf(" %x ", 17);
-	printf(" %x ", 99);
-	printf(" %x ", 100);
-	printf(" %x ", 101);
-	printf(" %x ", -9);
-	printf(" %x ", -10);
-	printf(" %x ", -11);
-	printf(" %x ", -14);
-	printf(" %x ", -101);
-	printf(" %x ", -15);
-	printf(" %x ", -16);
-	printf(" %x ", -99);
-	printf(" %x ", -100);
+	/*printf(" %u ", 0);
+	printf(" %u ", 1);
+	printf(" %u ", 9);
+	printf(" %u ", 10);
+	printf(" %u ", 11);
+	printf(" %u ", 15);
+	printf(" %u ", 16);
+	printf(" %u ", 17);
+	printf(" %u ", 99);
+	printf(" %u ", 100);
+	printf(" %u ", 101);
+	printf(" %u ", -9);
+	printf(" %u ", -10);
+	printf(" %u ", -11);
+	printf(" %u ", -14);
+	printf(" %u ", -15);
+	printf(" %u ", -16);
+	printf(" %u ", -99);
+	printf(" %u ", -100);*/
+	
+
+	
 }

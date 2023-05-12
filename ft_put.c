@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_put.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lboudjel <lboudjel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/12 12:26:00 by lboudjel          #+#    #+#             */
+/*   Updated: 2023/05/12 13:59:49 by lboudjel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include "ft_printf.h"
 
@@ -19,12 +31,13 @@ int	ft_putstr(const char *str)
 	return (i);
 }
 
-void	ft_putnbr(int n)
+void	ft_putnbr(int nb)
 {
-	long long int	nb;
-
-	nb = n;
-	if (nb < 0)
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+	}
+	else if (nb < 0)
 	{
 		ft_putchar('-');
 		ft_putnbr(nb * -1);
@@ -39,7 +52,6 @@ void	ft_putnbr(int n)
 		ft_putnbr(nb % 10);
 	}
 }
-
 void	ft_putnbr_positive(unsigned int n)
 {
 	unsigned long long int	nb;
@@ -56,7 +68,8 @@ void	ft_putnbr_positive(unsigned int n)
 
 /*
 putnbr_base :  tu divises par 16 : 
-42/16 = 2 donc dans la base hexa 0123456789abcdef on va a la 2e position qui est 2 puis 
+42/16 = 2 donc dans la base hexa 0123456789abcdef 
+on va a la 2e position qui est 2 puis 
 il reste 10 (42 - 32) donc on va a la 10e position qui est un a
 donc 42 en hexa = 2a
 */

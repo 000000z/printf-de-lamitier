@@ -32,6 +32,21 @@ int	count_len(int n)
 	return (len);
 }
 
+int	count_len_u(unsigned int n)
+{	
+	unsigned int	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
+}
+
 int	count_base(unsigned long long int n)
 {	
 	int	len;
