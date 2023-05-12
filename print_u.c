@@ -14,7 +14,7 @@
 
 int	print_u(va_list args)
 {
-	unsigned long long int	n;
+	unsigned int	n;
 
 	n = va_arg(args, unsigned int);
 	ft_putnbr_positive(n);

@@ -41,7 +41,7 @@ int	count_base(unsigned long long int n)
 		return (1);
 	while (n > 0)
 	{
-		n = n / 10;
+		n = n / 16;
 		len++;
 	}
 	return (len);

@@ -38,24 +38,28 @@ int	check(char c, va_list args)
 int	ft_printf(const char *str, ...)
 {
 	int i;
+	int	count;
 	va_list args;
 
 	va_start(args, str);
-
+	count = 0;
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			check(str[i + 1], args);
+			count = count + check(str[i + 1], args);
 			i++;
 		}
 		else
+		{
 			ft_putchar(str[i]);
+			count++;
+		}
 		i++;
 	}
 	va_end(args);
-	return (i);
+	return (count);
 }
 
 /*int main(void)

@@ -45,15 +45,13 @@ void	ft_putnbr_positive(unsigned int n)
 	unsigned long long int	nb;
 
 	nb = n;
-	if (nb <= 9)
+	if (nb > 10)
 	{
-		ft_putchar(nb + '0');
+		ft_putnbr_positive(nb / 10);
+		ft_putchar(nb % 10 + '0');
 	}
-	else if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	else
+		ft_putchar(nb % 10 + '0');
 }
 
 /*
